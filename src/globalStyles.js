@@ -1,6 +1,6 @@
 import { createGlobalStyle, styled } from "styled-components"
 
-import { IoArrowDown, IoCart, IoMailOutline, IoSearchOutline } from 'react-icons/io5'
+import { IoArrowDown, IoArrowForward, IoCart, IoMailOutline, IoSearchOutline } from 'react-icons/io5'
 import { FaFacebookF, FaTwitter, FaInstagram, FaPinterest, FaRedditAlien, FaPencilRuler, FaTrashAlt } from 'react-icons/fa'
 
 export const colors = {
@@ -29,6 +29,7 @@ export const iconList = {
   trash: <FaTrashAlt />,
   cart: <IoCart />,
   arrowDown: <IoArrowDown />,
+  arrowForward: <IoArrowForward />,
 
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Description, HeroContainer, HeroWrapper, Main, Title, Welcome, Wrapper } from './Home.styles'
+import { Button, Description, HeroContainer, HeroWrapper, Main, Posts, Title, Welcome, Wrapper } from './Home.styles'
 
 
 //Swiper Slider
@@ -15,9 +15,12 @@ import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import logoDecoration from '../../assets/imgs/img.png';
 import welcomeTitleBg from '../../assets/imgs/welcome.jpg'
 import { circleDotted, iconList } from '../../globalStyles';
+import PostDetail from '../../components/PostDetail/PostDetail';
 export default function Home() {
 
   const { documents: hero, loading: heroLoading } = useFetchDocuments("hero");
+
+  const { documents: posts, loading: loading } = useFetchDocuments("posts");
 
   return (
     <Wrapper>
@@ -56,6 +59,18 @@ export default function Home() {
             {circleDotted.svg}
           </Button>
         </Welcome>
+        <Posts>
+          <ul>
+            {posts &&
+            posts.map((item, key) => (
+              <li key={key}>
+                <a href="#!">
+                  <PostDetail data={item} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Posts>
       </Main>
     </Wrapper>
   )

@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { circleDotted, colors, fFamily, fSize, iconList } from "../../globalStyles";
+import { circleDotted, colors, fFamily, fSize, iconList, pseudoCfg } from "../../globalStyles";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -58,7 +58,6 @@ export const HeroWrapper = styled.div`
 
 export const Main = styled.main`
   width: 60%;
-  background-color: black;
 `
 
 
@@ -125,5 +124,54 @@ export const Button = styled.button `
     position: absolute;
     font-size: ${fSize.textSmaller};
     bottom: .85rem;
+  }
+`
+
+export const Posts = styled.section `
+  ul li:nth-child(2n) a article
+  {
+    flex-direction: row-reverse;
+  }
+  ul li:nth-child(3n) a article
+  {
+    display: block;
+    color: ${colors.textLight};
+
+    h2 {
+      color: ${colors.textLight};
+    }
+
+    div {
+      width: 100%;
+    }
+    
+    &:hover {
+      button {
+        color: ${colors.textLight}
+      }
+    }
+
+    .postDetail__container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+
+      &::after {
+        ${pseudoCfg}
+        width: 100%;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
+      }
+    }
   }
 `
