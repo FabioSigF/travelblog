@@ -84,7 +84,7 @@ export const useAuthentication = () => {
 
       await signInWithEmailAndPassword(auth, data.email, data.password)
       setLoading(false)
-
+      
     } catch(error) {
       let systemErrorMessage
       if(error.message.includes("user-not-found")){
@@ -98,6 +98,7 @@ export const useAuthentication = () => {
       setError(systemErrorMessage)
       setLoading(false)
     }
+
   }
 
   useEffect(()=> {
