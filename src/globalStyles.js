@@ -9,6 +9,9 @@ export const colors = {
   textLight: "#fff",
   textDark: "#1C2522",
   textGray: "#919A99",
+  success: '#5cc9a7',
+  warning: '#ffb116',
+  danger: '#f25767',
   bgGray: "#fafafa",
   bgLight: "fff",
   bgDottedHorizontal: "repeating-linear-gradient(90deg,#919a99,#919a99 2px,transparent 2px,transparent 4px);",
@@ -88,6 +91,16 @@ export const deviceSize = {
   desktop: '2560px'
 }
 
+export const PageHeader = styled.header `
+  padding: 3rem 0;
+  text-align: center;
+  width: 100%;
+  background-color: ${colors.bgGray};
+  h2 {
+    font-size: ${fSize.title};
+    font-weight: 600;
+  }
+`
 export const Container = styled.div`
     box-sizing: border-box;
     padding-left: 6%;
