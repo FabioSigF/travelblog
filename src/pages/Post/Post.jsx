@@ -4,6 +4,7 @@ import { Body, CommentsContainer, Content, Grid, Header, ImageWrapper, PostConta
 import { useParams } from 'react-router-dom';
 import { useFetchDocument } from '../../hooks/useFetchDocument';
 import { Container } from '../../globalStyles';
+import DOMPurify from "dompurify";
 
 export default function Post() {
 
@@ -12,6 +13,7 @@ export default function Post() {
   const { document: posts, loading: postsLoading } = useFetchDocument("posts")
 
   const [postDate, setPostDate] = useState("");
+  const [body, setBody] = useState();
 
   function getPostDate(item) {
     var date = item.toDate();
@@ -86,10 +88,11 @@ export default function Post() {
                     </div>
                     <h2>{post.title}</h2>
                   </Header>
-                  <Body>
-                    <p>
-                      {post.body}
-                    </p>
+                  <Body
+                    dangerouslySetInnerHTML={{
+                    __html: post.body,
+                  }}
+                  >
                   </Body>
                 </Content>
                 <CommentsContainer>

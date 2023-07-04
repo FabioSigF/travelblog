@@ -1,7 +1,7 @@
 import React from 'react'
-import { Content, NoPosts, Post, PostHeader, PostRow, Title, Wrapper } from './Dashboard.styles'
-import { Container, PageHeader } from '../../globalStyles'
-import { Link } from 'react-router-dom'
+import { ButtonNewPost, Content, Flex, NoPosts, Post, PostHeader, PostRow, Title, Wrapper } from './Dashboard.styles'
+import { Container, PageHeader, iconList } from '../../globalStyles'
+import { Link, useNavigate } from 'react-router-dom'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import { useDeleteDocument } from '../../hooks/useDeleteDocument';
 import { useAuthValue } from '../../context/AuthContext';
@@ -10,10 +10,10 @@ export default function Dashboard() {
   const { user } = useAuthValue()
   const uid = user.uid;
 
-
   const { documents: posts, loading } = useFetchDocuments("posts", null, uid);
   const { deleteDocument } = useDeleteDocument("posts")
 
+  const navigate = useNavigate();
 
   return (
     <Wrapper>
@@ -22,7 +22,13 @@ export default function Dashboard() {
       </PageHeader>
       <Container>
         <Content>
-          <Title>Gerencie os seus posts</Title>
+          <Flex>
+            <Title>Gerencie os seus posts</Title>
+            <ButtonNewPost
+              onClick={()=>navigate("/post/create")}
+            >{iconList.plus}New Post</ButtonNewPost>
+          </Flex>
+          {/*Colocar botão de criar post */}
           {posts && posts.length === 0 ? (
             <NoPosts>
               <p>Nâo foram encontrados posts</p>

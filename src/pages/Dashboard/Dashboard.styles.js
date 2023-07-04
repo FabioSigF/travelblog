@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { colors, fSize } from "../../globalStyles";
+import { colors, fSize, transition } from "../../globalStyles";
 
 export const Wrapper = styled.div `
 
@@ -9,11 +9,34 @@ export const Content = styled.div `
   margin-top: 3rem;
 `
 
+export const Flex = styled.div `
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+`
+
 export const Title = styled.p `
   color: ${colors.textDark};
   font-size: ${fSize.textLarger};
   font-weight: 500;
-  margin-bottom: 2rem;
+`
+
+export const ButtonNewPost = styled.button `
+  padding: .5rem 1rem;
+  background-color: ${colors.success};
+  border-radius: 5px;
+  color: ${colors.textLight};
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  transition: ${transition.default};
+  border: 2px solid ${colors.bgLight};
+
+  &:hover {
+    border-color: ${colors.success};
+  }
 `
 
 export const NoPosts = styled.div `

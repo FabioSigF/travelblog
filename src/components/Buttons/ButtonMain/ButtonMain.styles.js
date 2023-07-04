@@ -4,8 +4,9 @@ import { colors, fFamily, fSize, pseudoCfg, transition } from "../../../globalSt
 export const Wrapper = styled.button `
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: .35rem;
-
+  
   text-transform: uppercase;
   font-family: ${fFamily.other};
   font-size: ${fSize.textSmaller};

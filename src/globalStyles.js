@@ -1,7 +1,7 @@
 import { createGlobalStyle, styled } from "styled-components"
 
 import { IoArrowDown, IoArrowForward, IoCart, IoMailOutline, IoSearchOutline } from 'react-icons/io5'
-import { FaFacebookF, FaTwitter, FaInstagram, FaPinterest, FaRedditAlien, FaPencilRuler, FaTrashAlt } from 'react-icons/fa'
+import { FaFacebookF, FaTwitter, FaInstagram, FaPinterest, FaRedditAlien, FaPencilRuler, FaTrashAlt, FaPlus } from 'react-icons/fa'
 
 export const colors = {
   body: "#fff",
@@ -13,7 +13,7 @@ export const colors = {
   warning: '#ffb116',
   danger: '#f25767',
   bgGray: "#fafafa",
-  bgLight: "fff",
+  bgLight: "#fff",
   bgDottedHorizontal: "repeating-linear-gradient(90deg,#919a99,#919a99 2px,transparent 2px,transparent 4px);",
   bgDottedVertical: "repeating-linear-gradient(180deg,#919a99,#919a99 2px,transparent 2px,transparent 4px);",
   bgDottedVerticalWhite: "repeating-linear-gradient(180deg,#fff,#fff 2px,transparent 2px,transparent 4px);",
@@ -33,7 +33,7 @@ export const iconList = {
   cart: <IoCart />,
   arrowDown: <IoArrowDown />,
   arrowForward: <IoArrowForward />,
-
+  plus: <FaPlus/>,
 }
 
 export const fFamily = {
@@ -96,6 +96,7 @@ export const PageHeader = styled.header `
   text-align: center;
   width: 100%;
   background-color: ${colors.bgGray};
+  margin-bottom: 3rem;
   h2 {
     font-size: ${fSize.title};
     font-weight: 600;

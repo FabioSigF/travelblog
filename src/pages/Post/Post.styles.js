@@ -74,6 +74,12 @@ export const Body = styled.div `
     font-size: ${fSize.textLarger};
     line-height: ${`calc(${fSize.text} + .5rem)`};
   }
+
+  img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+  }
 `
 
 export const CommentsContainer = styled.div `
