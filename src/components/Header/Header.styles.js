@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { colors, fSize, pseudoCfg, transition } from "../../globalStyles";
+import { colors, fFamily, fSize, pseudoCfg, transition } from "../../globalStyles";
 
 export const Wrapper = styled.header`
   background-color: ${colors.bgGray};
@@ -48,7 +48,7 @@ export const NavButton = styled.button`
   justify-content: center;
 
   transition: ${transition.default};
-
+  z-index: 999;
   &:hover {
     border-color: ${colors.textDark};
     
@@ -107,8 +107,56 @@ export const Social = styled.a`
     background: repeating-linear-gradient(90deg,#919a99,#919a99 2px,transparent 2px,transparent 4px);
     height: 2px;
   }
+  
 `
 
 export const Nav = styled.nav`
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: ${colors.bgGray};
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 325px;
+  height: 100vh;
+  ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+  }
+  li a {
+    color: ${colors.textGray};
+    text-transform: uppercase;
+    font-weight: 500;
+    font-weight: ${fFamily.other};
+    letter-spacing: 2px;
+    &:hover,
+    &.active {
+      color: ${colors.textDark};
+    }
+  }
+  transition: ${transition.default};
+  transform: translateX(-400px);
+  ${props => props.navbutton && ({
+    transform: "translateX(0)",
+    visibility: "visible",
+  })} 
+`
+
+export const NavSocial = styled.div`
+  text-align: center;
+  ul {
+    flex-direction: row;
+    gap: 1rem;
+
+    li a:hover svg {
+      color: ${colors.textDark};
+    }
+  }
 `

@@ -16,6 +16,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import CreatePost from './pages/CreatePost/CreatePost';
 import EditPost from './pages/EditPost/EditPost';
 import Footer from './components/Footer/Footer';
+import { AppWrapper } from './App.styles';
 
 export default function App() {
 
@@ -39,8 +40,8 @@ export default function App() {
   return (
     <AuthProvider value={{user}}>
       <Router>
-        <div className="app container">
-          <Header />
+        <AppWrapper>
+          <Header/>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/search' element={<Search />} />
@@ -52,8 +53,7 @@ export default function App() {
             <Route path='/post/create' element={user ? <CreatePost /> : <Navigate to="/login" />} />
             <Route path='/posts/edit/:id' element={user ? <EditPost /> : <Navigate to="/login" />} />
           </Routes>
-        </div>
-        <Footer />
+        </AppWrapper>
       </Router>
     </AuthProvider>
   )

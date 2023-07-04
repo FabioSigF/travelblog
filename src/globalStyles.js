@@ -154,6 +154,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${fFamily.other};
     background: none;
   }
+  
+  svg {
+    transition: ${transition.default};
+  }
 
   input {
     border: 1px solid #ddd;
@@ -162,5 +166,13 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${fFamily.text};
     font-size: ${fSize.text};
     padding: .5rem 1rem;
+    width: 100%;
+    max-width: 416px;
+    outline: none;
+
+    transition: ${transition.default};
+    &:focus {
+      border-color: ${colors.textDark};
+    }
   }
 `

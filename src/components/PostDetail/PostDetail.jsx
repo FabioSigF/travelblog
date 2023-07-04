@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Content, ContentWrapper, Image, ImageContainer, Info, Title, Wrapper } from './PostDetail.styles'
 import ButtonMain from '../Buttons/ButtonMain/ButtonMain';
+import { useNavigate } from 'react-router-dom';
 
 export default function PostDetail({ data, reverse }) {
 
@@ -54,6 +55,8 @@ export default function PostDetail({ data, reverse }) {
     }
   }
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (data) {
       getHeroDate(data.createdAt);
@@ -61,7 +64,7 @@ export default function PostDetail({ data, reverse }) {
   }, [])
 
   return (
-    <Wrapper reverse={reverse}>
+    <Wrapper reverse={reverse} onClick={()=>navigate(`/posts/${data.id}`)}>
       <ContentWrapper>
         <Content>
           <Info><span>{heroDate}</span>{data.tagsArray[0]}</Info>

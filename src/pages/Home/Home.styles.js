@@ -15,7 +15,7 @@ export const HeroContainer = styled.section`
   left: 80px;
   bottom: 0;
   height: 100vh;
-  width: calc(40% - 2rem);
+  width: 40%;
 
   //Slide buttons
   & .swiper-button-prev,
@@ -57,7 +57,7 @@ export const HeroWrapper = styled.div`
 `
 
 export const Main = styled.main`
-  width: 60%;
+  width: calc(60% + 1rem);
 `
 
 
