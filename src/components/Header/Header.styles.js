@@ -3,7 +3,7 @@ import { colors, deviceSize, fFamily, pseudoCfg, transition } from "../../global
 
 export const Wrapper = styled.header`
   background-color: ${colors.bgGray};
-  padding: 2rem 1rem;
+  padding: 1rem;
   position: fixed;
   width: 100vw;
   top: 0;
@@ -20,6 +20,7 @@ export const Wrapper = styled.header`
     bottom: 0;
     width: 80px;
     height: 100vh;  
+    padding: 2rem 1rem;
   }
 `
 

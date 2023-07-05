@@ -1,21 +1,29 @@
 import { styled } from "styled-components";
-import { colors, fFamily, fSize, pseudoCfg } from "../../globalStyles";
+import { colors, deviceSize, fFamily, fSize, pseudoCfg } from "../../globalStyles";
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  min-height: 100vh;
   position: relative;
-  margin-left: 80px;
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: ${deviceSize.laptop}){
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1rem;
+    min-height: 100vh;
+    margin-left: 80px;
+  }
 `
 export const HeroContainer = styled.section`
-  position: fixed;
-  top: 0;
-  left: 80px;
-  bottom: 0;
+  
   height: 100vh;
-  width: 40%;
+
+  @media screen and (min-width: ${deviceSize.laptop}){
+    position: fixed;
+    top: 0;
+    left: 80px;
+    bottom: 0;  
+    width: 40%;
+  }
 
   //Slide buttons
   & .swiper-button-prev,
@@ -57,54 +65,71 @@ export const HeroWrapper = styled.div`
 `
 
 export const Main = styled.main`
-  width: calc(60% + 1rem);
+
+  @media screen and (min-width: ${deviceSize.laptop}){
+    width: calc(60% + 1rem);
+  }
+
 `
 
-
-export const Welcome = styled.section `
+export const Welcome = styled.section`
   position: relative;
   background-color: ${colors.bgGray};
-  height: 100vh;
-  
+  min-height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 2rem;
   justify-content: flex-end;
   padding: 2rem 4rem;
-
+  
   span {
     font-family: ${fFamily.other};
-    font-size: ${fSize.textSmaller};
+    font-size: ${fSize.small};
     font-weight: 500;
     letter-spacing: 3px;
     text-transform: uppercase;
     text-align: center;
   }
+  
+  @media screen and (min-width: ${deviceSize.laptop}){
+    height: 100vh;
+
+    span {
+      font-size: ${fSize.textSmaller};
+    }
+  }
 `
 
-export const Title = styled.h2 `
+export const Title = styled.h2`
   background: ${props => `url(${props.background})`};
   background-clip: text;
-  font-size: ${fSize.large};
+  font-size: 53px;
   font-weight: 700;
   color: transparent;
   text-align: center;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media screen and (min-width: ${deviceSize.laptop}){
+    font-size: ${fSize.large};
+  }
 `
 
-export const Description = styled.p `
+export const Description = styled.p`
   color: ${colors.textDark};
   text-align: center;
   font-size: ${fSize.textLarger};
   line-height: ${`calc(${fSize.textLarger} + .5rem)`};
-  max-width: 80%;
   margin-bottom: 2rem;
+  
+  @media screen and (min-width: ${deviceSize.laptop}){
+    max-width: 80%;
+  }
 `
 
-export const Button = styled.button `
+export const Button = styled.button`
   color: ${colors.main};
   cursor: auto;
   font-size: ${fSize.small};
@@ -125,52 +150,64 @@ export const Button = styled.button `
     font-size: ${fSize.textSmaller};
     bottom: .85rem;
   }
+
 `
 
-export const Posts = styled.section `
-  ul li:nth-child(2n) a article
-  {
-    flex-direction: row-reverse;
-  }
-  ul li:nth-child(3n) a article
-  {
-    display: block;
-    color: ${colors.textLight};
-
-    h2 {
-      color: ${colors.textLight};
-    }
-
-    div {
-      width: 100%;
-    }
-    
-    &:hover {
-      button {
-        color: ${colors.textLight}
+export const Posts = styled.section`
+  @media screen and (min-width: ${deviceSize.tablet}) and (max-width: ${deviceSize.laptop}) {
+    ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      li a article{
+        height: 100%;
       }
     }
-
-    .postDetail__container {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: -1;
-
-      &::after {
-        ${pseudoCfg}
+  }
+  @media screen and (min-width: ${deviceSize.laptop}){
+    ul li:nth-child(2n) a article
+    {
+      flex-direction: row-reverse;
+    }
+    ul li:nth-child(3n) a article
+    {
+      display: block;
+      color: ${colors.textLight};
+    
+      h2 {
+        color: ${colors.textLight};
+      }
+    
+      div {
+        width: 100%;
+      }
+      
+      &:hover {
+        button {
+          color: ${colors.textLight}
+        }
+      }
+    
+      .postDetail__container {
+        position: absolute;
         width: 100%;
         height: 100%;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
-        z-index: 1;
-        background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
+        z-index: -1;
+      
+        &::after {
+          ${pseudoCfg}
+          width: 100%;
+          height: 100%;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 1;
+          background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
+        }
       }
     }
   }

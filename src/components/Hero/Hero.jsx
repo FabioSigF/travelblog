@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Buttons, Content, Description, HeroBackground, Info, Title, Wrapper } from './Hero.styles'
-import { Container, circleDotted } from '../../globalStyles';
+import { Content, Description, HeroBackground, Info, Title, Wrapper } from './Hero.styles'
+import { Container } from '../../globalStyles';
 
 export default function Hero({ data }) {
 
@@ -87,9 +87,6 @@ export default function Hero({ data }) {
               <Description>
                 {description}
               </Description>
-              <Buttons>
-                
-              </Buttons>
             </Content>
           </Container>
         </HeroBackground>

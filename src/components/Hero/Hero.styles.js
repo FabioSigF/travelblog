@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { colors, fFamily, fSize, pseudoCfg } from "../../globalStyles";
+import { colors, deviceSize, fFamily, fSize, pseudoCfg } from "../../globalStyles";
 
 export const Wrapper = styled.div `
   width: 100%;
@@ -16,12 +16,16 @@ export const HeroBackground = styled.div `
   background-size: cover;
 
   display: flex;
-  align-items: flex-end;
-  padding: 3rem;
-`
+  align-items: flex-end;  
+  `
 
 export const Content = styled.div `
   color: ${colors.textLight};
+
+  @media screen and (min-width: ${deviceSize.laptop}){
+    padding: 3rem;
+  }
+  
 `
 
 export const Info = styled.div `
@@ -47,35 +51,25 @@ export const Info = styled.div `
 `
 
 export const Title = styled.h2 `
-  font-size: ${fSize.largeSmaller};
+  font-size: ${fSize.titleLarger};
   font-weight: 700;
   color: ${colors.textLight};
   margin-bottom: 2rem;
 
-  .qodef-dotted-circle-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    stroke-linecap: round;
-    stroke-dasharray: 0.6px,4px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2px;
-    overflow: visible;
-    stroke-width: 1.5px;
+  @media screen and (min-width: ${deviceSize.laptop}){
+    font-size: ${fSize.largeSmaller};
   }
 `
 
 export const Description = styled.p `
   color: ${colors.textLight};
-  font-size: ${fSize.textLarger};
-  line-height: ${`calc(${fSize.textLarger} + .5rem)`};
-  margin-bottom: 2rem;
+  font-size: ${fSize.text};
+  line-height: ${`calc(${fSize.text} + .5rem)`};
+  margin-bottom: 5rem;
+
+  @media screen and (min-width: ${deviceSize.laptop}){
+    font-size: ${fSize.textLarger};
+    line-height: ${`calc(${fSize.textLarger} + .5rem)`};
+    margin-bottom: 2rem;
+  }
 `
-
-export const Buttons = styled.div `
-
-`
-

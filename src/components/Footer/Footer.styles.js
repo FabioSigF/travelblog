@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { colors, fSize, pseudoCfg, transition } from "../../globalStyles";
+import { colors, fSize, pseudoCfg } from "../../globalStyles";
 
 export const Wrapper = styled.footer`
   background-color: ${colors.bgGray};
