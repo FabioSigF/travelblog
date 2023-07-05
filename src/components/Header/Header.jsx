@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Flex, LogoWrapper, Nav, NavButton, NavOpenButton, NavSocial, Social, Wrapper } from './Header.styles'
+import { Flex, LogoWrapper, Nav, NavButton,  NavSocial, Social, Wrapper } from './Header.styles'
 import Logo from '../Logo/Logo'
 import { iconList } from '../../globalStyles';
 import { NavLink } from 'react-router-dom';

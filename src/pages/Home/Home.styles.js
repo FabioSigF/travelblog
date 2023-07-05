@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { circleDotted, colors, fFamily, fSize, iconList, pseudoCfg } from "../../globalStyles";
+import { colors, fFamily, fSize, pseudoCfg } from "../../globalStyles";
 
 export const Wrapper = styled.div`
   display: flex;
