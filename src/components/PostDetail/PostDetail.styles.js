@@ -46,30 +46,6 @@ export const Content = styled.div `
   align-items: flex-start;
 `
 
-export const Info = styled.div `
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: ${colors.main};
-  font-family: ${fFamily.other};
-  font-size: ${fSize.small};
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  span {
-    position: relative;
-    &::before {
-      ${pseudoCfg}
-      background: ${colors.bgDottedVertical};
-      width: 2px;
-      height: 60%;
-      top: 2px;
-      bottom: 0;
-      right: -.55rem;
-    }
-  }
-`
-
 export const Title = styled.h2 `
   font-size: ${fSize.title};
   font-weight: 700;

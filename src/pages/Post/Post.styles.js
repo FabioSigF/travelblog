@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { colors, fFamily, fSize, pseudoCfg } from "../../globalStyles";
+import { colors, fFamily, fSize, pseudoCfg, transition } from "../../globalStyles";
 
 export const Wrapper = styled.div `
   position: relative;
@@ -9,11 +9,7 @@ export const Wrapper = styled.div `
 export const Grid = styled.div `
   display: grid;
   grid-template-columns: 4fr 1fr;
-  gap: 1rem;
-`
-
-export const RecentPosts = styled.aside `
-
+  gap: 2rem;
 `
 
 export const PostContainer = styled.section `
@@ -89,5 +85,46 @@ export const CommentsContainer = styled.div `
     font-size: ${fSize.title};
     font-family: ${fFamily.title};
     font-weight: 600;
+  }
+`
+
+export const Aside = styled.aside `
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`
+
+export const AsideSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px dotted ${colors.textGray};
+`
+
+export const AsideTitle = styled.span `
+  font-family: ${fFamily.title};
+  font-size: ${fSize.textLarger};
+  font-weight: 600;
+`
+
+export const Categories = styled.ul `
+
+  li a {
+    color: ${colors.textGray};
+    font-family: ${fFamily.other};
+    font-size: ${fSize.textSmaller};
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    &:hover {
+      color: ${colors.textDark};
+    }
+  }
+
+  li:not(:last-child)
+  {
+    margin-bottom: 1rem;
   }
 `

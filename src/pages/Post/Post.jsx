@@ -1,73 +1,53 @@
 import React, { useEffect, useState } from 'react'
-import { Body, CommentsContainer, Content, Grid, Header, ImageWrapper, PostContainer, Wrapper } from './Post.styles'
+import { Aside, AsideSection, AsideTitle, Body, Categories, CommentsContainer, Content, Grid, Header, ImageWrapper, PostContainer, RecentPosts, Wrapper } from './Post.styles'
 
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useFetchDocument } from '../../hooks/useFetchDocument';
+import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import { Container } from '../../globalStyles';
-import DOMPurify from "dompurify";
+
+import DataHeader from '../../components/DataHeader/DataHeader';
+import CardRecentPost from '../../components/CardRecentPost/CardRecentPost';
 
 export default function Post() {
 
   const { id } = useParams();
-  const { document: post, loading } = useFetchDocument("posts", id)
-  const { document: posts, loading: postsLoading } = useFetchDocument("posts")
 
-  const [postDate, setPostDate] = useState("");
-  const [body, setBody] = useState();
+  const { document: post, loading } = useFetchDocument("posts", id);
 
-  function getPostDate(item) {
-    var date = item.toDate();
-    var day = date.getDate();
-    var month = (date.getMonth());
-    var year = date.getFullYear();
+  const { documents: posts, loading: loadingPosts } = useFetchDocuments("posts");
 
-    switch (month) {
-      case 0:
-        setPostDate(`JAN ${day}, ${year}`);
-        break;
-      case 1:
-        setPostDate(`FEB ${day}, ${year}`);
-        break;
-      case 2:
-        setPostDate(`MAR ${day}, ${year}`);
-        break;
-      case 3:
-        setPostDate(`APR ${day}, ${year}`);
-        break;
-      case 4:
-        setPostDate(`MAY ${day}, ${year}`);
-        break;
-      case 5:
-        setPostDate(`JUN ${day}, ${year}`);
-        break;
-      case 6:
-        setPostDate(`JUL ${day}, ${year}`);
-        break;
-      case 7:
-        setPostDate(`AUG ${day}, ${year}`);
-        break;
-      case 8:
-        setPostDate(`SEP ${day}, ${year}`);
-        break;
-      case 9:
-        setPostDate(`OCT ${day}, ${year}`);
-        break;
-      case 10:
-        setPostDate(`NOV ${day}, ${year}`);
-        break;
-      case 11:
-        setPostDate(`DEC ${day}, ${year}`);
-        break;
-      default:
-        break;
-    }
+  const navigate = useNavigate();
+
+  const [recentPosts, setRecentPosts] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  const showFilterOptions = async () => {
+
+    let list = [];
+
+    posts.forEach((item) => {
+      //Se a marca não estiver inclusa na lista
+      item.tagsArray.forEach((tag) => {
+        if (!list.includes(tag)) {
+          setCategories(current => [...current, tag]);
+          list.push(tag);
+        }
+      })
+    })
   }
 
   useEffect(() => {
-    if (post) {
-      getPostDate(post.createdAt);
+    if (posts) {
+      for (let i = 0; i < 6; i++) {
+        if (posts[i].id !== id) {
+          setRecentPosts(current => [...current, posts[i]]);
+        }
+      }
+
+      showFilterOptions();
     }
-  }, [post, postDate])
+  }, [posts])
 
   return (
     <Wrapper>
@@ -82,16 +62,13 @@ export default function Post() {
                 </ImageWrapper>
                 <Content>
                   <Header>
-                    <div>
-                      <span>{postDate}</span>
-                      {post.tagsArray[0]}
-                    </div>
+                    <DataHeader data={post} />
                     <h2>{post.title}</h2>
                   </Header>
                   <Body
                     dangerouslySetInnerHTML={{
-                    __html: post.body,
-                  }}
+                      __html: post.body,
+                    }}
                   >
                   </Body>
                 </Content>
@@ -101,11 +78,29 @@ export default function Post() {
               </PostContainer>
             </>
           )}
+          <Aside>
+            <AsideSection>
+              <AsideTitle>Recent Posts</AsideTitle>
+              {posts && recentPosts &&
+                recentPosts.map((item, key) => (
+                  <CardRecentPost post={item} key={key} />
+                ))}
+            </AsideSection>
+            <AsideSection>
+              <AsideTitle>Categories</AsideTitle>
+              <Categories>
+                {categories &&
+                  categories.map((item) => (
+                    <li>
+                      <a href="#!">
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+              </Categories>
+            </AsideSection>
+          </Aside>
         </Grid>
-        {/* {posts &&
-          posts.map((item, key) => (
-            
-          ))} */}
       </Container>
     </Wrapper>
   )
