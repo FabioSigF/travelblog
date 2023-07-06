@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { colors, fSize, pseudoCfg } from "../../globalStyles";
+import { colors, deviceSize, fSize, pseudoCfg } from "../../globalStyles";
 
 export const Wrapper = styled.footer`
   background-color: ${colors.bgGray};
@@ -25,7 +25,13 @@ export const Content = styled.div`
     font-size: ${fSize.textLarger};
     line-height: ${`calc(${fSize.textLarger} + .5rem)`};
     margin-bottom: 2rem;
-    width: 50%;
+  }
+  
+  @media screen and (min-width: ${deviceSize.tablet})
+  {
+    p {
+      width: 50%;
+    }
   }
 
 `

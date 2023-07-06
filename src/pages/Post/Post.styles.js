@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { colors, fFamily, fSize, pseudoCfg, transition } from "../../globalStyles";
+import { colors, deviceSize, fFamily, fSize, pseudoCfg } from "../../globalStyles";
 
 export const Wrapper = styled.div `
   position: relative;
@@ -7,9 +7,19 @@ export const Wrapper = styled.div `
 `
 
 export const Grid = styled.div `
-  display: grid;
-  grid-template-columns: 4fr 1fr;
-  gap: 2rem;
+
+
+  @media screen and (max-width: ${deviceSize.laptop}){
+    display: flex;
+    flex-direction: column ;
+    gap: 2rem;
+  }
+
+    @media screen and (min-width: ${deviceSize.laptop}){
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 2rem;
+  }
 `
 
 export const PostContainer = styled.section `
@@ -25,6 +35,8 @@ export const ImageWrapper = styled.div `
   position: relative;
   margin-bottom: 2rem;
   img {
+    display: block;
+    margin: auto;
     max-width: 100%;
   }
 `
@@ -32,7 +44,10 @@ export const ImageWrapper = styled.div `
 export const Header = styled.header `
   
   margin-bottom: 1rem;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   div {
     display: flex;
     align-items: center;

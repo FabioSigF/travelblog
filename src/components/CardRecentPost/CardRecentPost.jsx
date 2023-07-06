@@ -8,7 +8,10 @@ export default function CardRecentPost({ post }) {
   const navigate = useNavigate();
 
   return (
-    <Wrapper onClick={() => navigate(`/post/${post.id}`)}>
+    <Wrapper onClick={() => {
+      navigate(`/posts/${post.id}`)
+      window.location.reload()
+    }}>
       <Background background={post.image} />
       <Description>
         <DataHeader data={post} noTag={true}/>

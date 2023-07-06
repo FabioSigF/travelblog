@@ -23,7 +23,6 @@ export const Header = styled.div `
 `
 
 export const Form = styled.form `
-  margin-left: 3rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;

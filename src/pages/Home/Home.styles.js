@@ -16,6 +16,9 @@ export const Wrapper = styled.div`
 export const HeroContainer = styled.section`
   
   height: 100vh;
+  @media screen and (max-width: ${deviceSize.tablet}){
+    height: calc(100vh - 74px);
+  }
 
   @media screen and (min-width: ${deviceSize.laptop}){
     position: fixed;
@@ -62,6 +65,9 @@ export const HeroContainer = styled.section`
 export const HeroWrapper = styled.div`
   width: 100%;
   height: 100vh;
+  @media screen and (max-width: ${deviceSize.tablet}){
+    height: calc(100vh - 74px);
+  }
 `
 
 export const Main = styled.main`

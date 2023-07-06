@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Aside, AsideSection, AsideTitle, Body, Categories, CommentsContainer, Content, Grid, Header, ImageWrapper, PostContainer, RecentPosts, Wrapper } from './Post.styles'
+import { Aside, AsideSection, AsideTitle, Body, Categories, CommentsContainer, Content, Grid, Header, ImageWrapper, PostContainer, Wrapper } from './Post.styles'
 
 import { useNavigate, useParams } from 'react-router-dom';
 import { useFetchDocument } from '../../hooks/useFetchDocument';
@@ -57,14 +57,14 @@ export default function Post() {
           {post && (
             <>
               <PostContainer>
+                <Header>
+                  <DataHeader data={post} />
+                  <h2>{post.title}</h2>
+                </Header>
                 <ImageWrapper>
                   <img src={post.image} alt={post.title} />
                 </ImageWrapper>
                 <Content>
-                  <Header>
-                    <DataHeader data={post} />
-                    <h2>{post.title}</h2>
-                  </Header>
                   <Body
                     dangerouslySetInnerHTML={{
                       __html: post.body,
