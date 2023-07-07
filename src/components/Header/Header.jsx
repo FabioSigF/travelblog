@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Flex, LogoWrapper, Nav, NavButton,  NavSocial, Social, Wrapper } from './Header.styles'
 import Logo from '../Logo/Logo'
 import { iconList } from '../../globalStyles';
@@ -6,12 +6,13 @@ import { NavLink } from 'react-router-dom';
 
 import { useAuthentication } from '../../hooks/useAuthentication';
 import { useStateContext } from '../../context/ContextProvider';
+import Search from '../Search/Search';
 
 export default function Header() {
 
-  const [navButton, setNavButton] = useState(false);
+  const {openMenu, setOpenMenu} = useStateContext();
   const { user } = useStateContext();
-  const { logout } = useAuthentication()
+  const { logout } = useAuthentication();
   return (
     <Wrapper>
       <Flex>
@@ -19,27 +20,27 @@ export default function Header() {
           <Logo letter />
         </LogoWrapper>
         <NavButton
-          onClick={() => setNavButton(!navButton)}
-          navbutton={navButton}
+          onClick={() => setOpenMenu(!openMenu)}
+          navbutton={openMenu}
         />
         <Social href="#!">{iconList.mail}</Social>
 
         {/*OPEN HEADER */}
-        <Nav navbutton={navButton}>
+        <Nav navbutton={openMenu}>
           <a href="/"
-            onClick={() => setNavButton(!navButton)}>
+            onClick={() => setOpenMenu(!openMenu)}>
             <Logo />
           </a>
           <ul>
             <li>
               <NavLink to="/" end
-                onClick={() => setNavButton(!navButton)}>
+                onClick={() => setOpenMenu(!openMenu)}>
                 Home
               </NavLink>
             </li>
             <li>
               <NavLink to="/about"
-                onClick={() => setNavButton(!navButton)}>
+                onClick={() => setOpenMenu(!openMenu)}>
                 About
               </NavLink>
             </li>
@@ -48,7 +49,7 @@ export default function Header() {
               <>
                 <li>
                   <NavLink to="/dashboard"
-                    onClick={() => setNavButton(!navButton)}>
+                    onClick={() => setOpenMenu(!openMenu)}>
                     Dashboard
                   </NavLink>
                 </li>
@@ -64,19 +65,20 @@ export default function Header() {
               <>
                 <li>
                   <NavLink to="/login"
-                    onClick={() => setNavButton(!navButton)}>
+                    onClick={() => setOpenMenu(!openMenu)}>
                     Login
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/register"
-                    onClick={() => setNavButton(!navButton)}>
+                    onClick={() => setOpenMenu(!openMenu)}>
                     Register
                   </NavLink>
                 </li>
               </>
             )}
           </ul>
+          <Search />
           <NavSocial>
             <ul>
               <li>

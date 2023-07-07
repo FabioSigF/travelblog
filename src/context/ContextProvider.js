@@ -7,6 +7,7 @@ export const ContextProvider = ({ children }) => {
 
   const [user, setUser] = useState(undefined)
   const [searchString, setSearchString] = useState(undefined);
+  const [openMenu, setOpenMenu] = useState(false);
 
   return (
     <StateContext.Provider
@@ -14,7 +15,9 @@ export const ContextProvider = ({ children }) => {
         user,
         setUser,
         searchString,
-        setSearchString
+        setSearchString,
+        openMenu,
+        setOpenMenu
       }}>
       {children}
     </StateContext.Provider>
