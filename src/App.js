@@ -16,6 +16,7 @@ import CreatePost from './pages/CreatePost/CreatePost';
 import EditPost from './pages/EditPost/EditPost';
 import { AppWrapper } from './App.styles';
 import { useStateContext } from './context/ContextProvider';
+import Footer from './components/Footer/Footer';
 
 export default function App() {
 
@@ -51,6 +52,7 @@ export default function App() {
           <Route path='/post/create' element={user ? <CreatePost /> : <Navigate to="/login" />} />
           <Route path='/posts/edit/:id' element={user ? <EditPost /> : <Navigate to="/login" />} />
         </Routes>
+        <Footer/>
       </AppWrapper>
     </Router>
   )

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Aside, AsideSection, AsideTitle, Body, Categories, CommentsContainer, Content, Grid, Header, ImageWrapper, PostContainer, Wrapper } from './Post.styles'
 
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useFetchDocument } from '../../hooks/useFetchDocument';
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import { Container } from '../../globalStyles';
@@ -39,15 +39,14 @@ export default function Post() {
 
   useEffect(() => {
     if (posts) {
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < posts.length; i++) {
         if (posts[i].id !== id) {
           setRecentPosts(current => [...current, posts[i]]);
         }
       }
-
       showFilterOptions();
     }
-  }, [posts])
+  }, [posts, id])
 
   return (
     <Wrapper>
@@ -90,11 +89,11 @@ export default function Post() {
               <AsideTitle>Categories</AsideTitle>
               <Categories>
                 {categories &&
-                  categories.map((item) => (
-                    <li>
-                      <a href="#!">
+                  categories.map((item, key) => (
+                    <li key={key}>
+                      <Link to={`/search?q=${item}`}>
                         {item}
-                      </a>
+                      </Link>
                     </li>
                   ))}
               </Categories>

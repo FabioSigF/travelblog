@@ -4,6 +4,7 @@ import { colors, deviceSize, fSize, pseudoCfg, transition } from "../../globalSt
 export const Wrapper = styled.article `
   display: flex;
   position: relative;
+  cursor: pointer;
   &:hover {
     .postDetail__bg {
       transform: scale(1.1);

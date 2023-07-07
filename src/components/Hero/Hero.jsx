@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Content, Description, HeroBackground, Info, Title, Wrapper } from './Hero.styles'
 import { Container } from '../../globalStyles';
+import { useNavigate } from 'react-router-dom';
 
 export default function Hero({ data }) {
 
   const [heroDate, setHeroDate] = useState("");
   const [description, setDescription] = useState("");
+
+  const navigate = useNavigate();
 
   function getHeroDate(item) {
     var date = item.toDate();
@@ -69,27 +72,29 @@ export default function Hero({ data }) {
   }, [])
 
   return (
-    <Wrapper>
+    <>
       {data && (
-        <HeroBackground background={data.image}>
-          <Container>
-            <Content>
-              <Info>
-                <span>
-                  {heroDate}
-                </span>
-                JOURNEY
-              </Info>
-              <Title>
-                {data.title}
-              </Title>
-              <Description>
-                {description}
-              </Description>
-            </Content>
-          </Container>
-        </HeroBackground>
+        <Wrapper onClick={()=>navigate(`/posts/${data.postId}`)}>
+          <HeroBackground background={data.image}>
+            <Container>
+              <Content>
+                <Info>
+                  <span>
+                    {heroDate}
+                  </span>
+                  JOURNEY
+                </Info>
+                <Title>
+                  {data.title}
+                </Title>
+                <Description>
+                  {description}
+                </Description>
+              </Content>
+            </Container>
+          </HeroBackground>
+        </Wrapper>
       )}
-    </Wrapper>
+    </>
   )
 }

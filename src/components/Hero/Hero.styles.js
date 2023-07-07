@@ -4,6 +4,7 @@ import { colors, deviceSize, fFamily, fSize, pseudoCfg } from "../../globalStyle
 export const Wrapper = styled.div `
   width: 100%;
   height: 100%;
+  cursor: pointer;
 `
 
 export const HeroBackground = styled.div `

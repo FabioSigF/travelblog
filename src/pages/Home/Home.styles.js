@@ -8,9 +8,7 @@ export const Wrapper = styled.div`
   @media screen and (min-width: ${deviceSize.laptop}){
     flex-direction: row;
     justify-content: flex-end;
-    gap: 1rem;
     min-height: 100vh;
-    margin-left: 80px;
   }
 `
 export const HeroContainer = styled.section`
@@ -21,9 +19,9 @@ export const HeroContainer = styled.section`
   }
 
   @media screen and (min-width: ${deviceSize.laptop}){
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 80px;
+    left: 0;
     bottom: 0;  
     width: 40%;
   }
@@ -73,7 +71,7 @@ export const HeroWrapper = styled.div`
 export const Main = styled.main`
 
   @media screen and (min-width: ${deviceSize.laptop}){
-    width: calc(60% + 1rem);
+    width: 60%;
   }
 
 `

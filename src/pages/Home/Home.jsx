@@ -16,8 +16,6 @@ import logoDecoration from '../../assets/imgs/img.png';
 import welcomeTitleBg from '../../assets/imgs/welcome.jpg'
 import { circleDotted, iconList } from '../../globalStyles';
 import PostDetail from '../../components/PostDetail/PostDetail';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 export default function Home() {
 
   const { documents: hero, loading: heroLoading } = useFetchDocuments("hero");
@@ -74,7 +72,6 @@ export default function Home() {
                 ))}
             </ul>
           </Posts>
-          <Footer/>
         </Main>
       </Wrapper>
     </>
