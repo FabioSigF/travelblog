@@ -6,7 +6,8 @@ export const Wrapper = styled.div `
 `
 
 export const Content = styled.div `
-  margin-top: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 `
 
 export const Flex = styled.div `
@@ -41,9 +42,13 @@ export const ButtonNewPost = styled.button `
 
 export const NoPosts = styled.div `
   text-align: center;
-
+  padding-bottom: 2rem;
   p {
     margin-bottom: 1rem;
+  }
+  a {
+    color: ${colors.success};
+
   }
 `
 

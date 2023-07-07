@@ -36,7 +36,7 @@ export default function Dashboard() {
             {posts && posts.length === 0 ? (
               <NoPosts>
                 <p>Nâo foram encontrados posts</p>
-                <Link to="posts/create">Criar primeiro post</Link>
+                <Link to="/post/create">Criar primeiro post</Link>
               </NoPosts>
             ) : (
               <Post>

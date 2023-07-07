@@ -54,4 +54,44 @@ export const BodyContainer = styled.div `
   .bodyItem {
     height: 100%;
   }
+
+  p, a, li {
+    color: ${colors.textGray};
+    font-size: ${fSize.textLarger};
+    line-height: ${`calc(${fSize.textLarger} + .5rem)`};
+  }
+
+  img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: ${fSize.title};
+    font-weight: 500;
+    padding-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: ${fSize.textLarger};
+    font-weight: 500;
+    padding-bottom: 1rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    li {
+      list-style: circle;
+      margin-left: 3rem;
+
+    }
+  }
+
+  a {
+    font-weight: 600;
+  }
 `
