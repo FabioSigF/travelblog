@@ -62,7 +62,6 @@ export default function Hero({ data }) {
   }
 
   useEffect(() => {
-    console.log(data);
     if (data) {
       getHeroDate(data.createdAt);
       showShortDescription();

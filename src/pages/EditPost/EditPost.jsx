@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useAuthValue } from '../../context/AuthContext';
 import { useFetchDocument } from '../../hooks/useFetchDocument';
 import { useUpdateDocument } from '../../hooks/useUpdateDocument';
 import { BodyContainer, Content, Form, Header, Wrapper } from './EditPost.styles';
@@ -9,6 +8,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Container, PageHeader } from '../../globalStyles';
 import ButtonMain from '../../components/Buttons/ButtonMain/ButtonMain';
+import { useStateContext } from '../../context/ContextProvider';
 
 export default function EditPost() {
   const { id } = useParams()
@@ -34,7 +34,7 @@ export default function EditPost() {
 
 
   const { updateDocument, response } = useUpdateDocument("posts")
-  const { user } = useAuthValue()
+  const { user } = useStateContext()
 
   const navigate = useNavigate()
 

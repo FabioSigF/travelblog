@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthValue } from '../../context/AuthContext';
 import { useInsertDocument } from '../../hooks/useInsertDocument'
 import { Content, Wrapper, Header, Form, BodyContainer } from './CreatePost.styles';
 import { Container, PageHeader } from '../../globalStyles';
@@ -9,6 +8,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 import ButtonMain from '../../components/Buttons/ButtonMain/ButtonMain';
+import { useStateContext } from '../../context/ContextProvider';
 
 
 export default function CreatePost() {
@@ -22,7 +22,7 @@ export default function CreatePost() {
   console.log(body);
   
   const { insertDocument, response } = useInsertDocument("posts")
-  const { user } = useAuthValue()
+  const { user } = useStateContext()
 
   const navigate = useNavigate()
 

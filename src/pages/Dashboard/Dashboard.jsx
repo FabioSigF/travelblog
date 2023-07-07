@@ -4,10 +4,10 @@ import { Container, PageHeader, iconList } from '../../globalStyles'
 import { Link, useNavigate } from 'react-router-dom'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import { useDeleteDocument } from '../../hooks/useDeleteDocument';
-import { useAuthValue } from '../../context/AuthContext';
+import { useStateContext } from '../../context/ContextProvider';
 export default function Dashboard() {
 
-  const { user } = useAuthValue()
+  const { user } = useStateContext()
   const uid = user.uid;
 
   const { documents: posts, loading } = useFetchDocuments("posts", null, uid);

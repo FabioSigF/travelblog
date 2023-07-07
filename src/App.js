@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 
-import { AuthProvider } from './context/AuthContext'
 import { useAuthentication } from './hooks/useAuthentication';
 import { onAuthStateChanged } from 'firebase/auth';
 
@@ -15,12 +14,12 @@ import Register from './pages/Register/Register';
 import Dashboard from './pages/Dashboard/Dashboard';
 import CreatePost from './pages/CreatePost/CreatePost';
 import EditPost from './pages/EditPost/EditPost';
-import Footer from './components/Footer/Footer';
 import { AppWrapper } from './App.styles';
+import { useStateContext } from './context/ContextProvider';
 
 export default function App() {
 
-  const [user, setUser] = useState(undefined);
+  const { user, setUser } = useStateContext();
   const { auth } = useAuthentication()
 
   const loadingUser = user === undefined
@@ -38,23 +37,21 @@ export default function App() {
   }
 
   return (
-    <AuthProvider value={{user}}>
-      <Router>
-        <AppWrapper>
-          <Header/>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/search' element={<Search />} />
-            <Route path='/posts/:id' element={<Post />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/login' element={!user ? <Login /> : <Navigate to="/" />} />
-            <Route path='/register' element={!user ? <Register /> : <Navigate to="/" />} />
-            <Route path='/dashboard' element={user ? <Dashboard /> : <Navigate to="/login" />} />
-            <Route path='/post/create' element={user ? <CreatePost /> : <Navigate to="/login" />} />
-            <Route path='/posts/edit/:id' element={user ? <EditPost /> : <Navigate to="/login" />} />
-          </Routes>
-        </AppWrapper>
-      </Router>
-    </AuthProvider>
+    <Router>
+      <AppWrapper>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/search' element={<Search />} />
+          <Route path='/posts/:id' element={<Post />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/login' element={!user ? <Login /> : <Navigate to="/" />} />
+          <Route path='/register' element={!user ? <Register /> : <Navigate to="/" />} />
+          <Route path='/dashboard' element={user ? <Dashboard /> : <Navigate to="/login" />} />
+          <Route path='/post/create' element={user ? <CreatePost /> : <Navigate to="/login" />} />
+          <Route path='/posts/edit/:id' element={user ? <EditPost /> : <Navigate to="/login" />} />
+        </Routes>
+      </AppWrapper>
+    </Router>
   )
 }

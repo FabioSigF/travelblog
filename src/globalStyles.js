@@ -1,7 +1,7 @@
 import { createGlobalStyle, styled } from "styled-components"
 
 import { IoArrowDown, IoArrowForward, IoCart, IoMailOutline, IoSearchOutline } from 'react-icons/io5'
-import { FaFacebookF, FaTwitter, FaInstagram, FaPinterest, FaRedditAlien, FaPencilRuler, FaTrashAlt, FaPlus } from 'react-icons/fa'
+import { FaFacebookF, FaTwitter, FaInstagram, FaPinterest, FaRedditAlien, FaPencilRuler, FaTrashAlt, FaPlus, FaLinkedin, FaLinkedinIn } from 'react-icons/fa'
 
 export const colors = {
   body: "#fff",
@@ -25,6 +25,7 @@ export const iconList = {
   facebook: <FaFacebookF />,
   twitter: <FaTwitter />,
   instagram: <FaInstagram />,
+  linkedin: <FaLinkedinIn />,
   pinterest: <FaPinterest />,
   reddit: <FaRedditAlien />,
   search: <IoSearchOutline />,

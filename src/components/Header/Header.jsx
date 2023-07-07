@@ -5,12 +5,12 @@ import { iconList } from '../../globalStyles';
 import { NavLink } from 'react-router-dom';
 
 import { useAuthentication } from '../../hooks/useAuthentication';
-import { useAuthValue } from '../../context/AuthContext';
+import { useStateContext } from '../../context/ContextProvider';
 
 export default function Header() {
 
   const [navButton, setNavButton] = useState(false);
-  const { user } = useAuthValue();
+  const { user } = useStateContext();
   const { logout } = useAuthentication()
   return (
     <Wrapper>
