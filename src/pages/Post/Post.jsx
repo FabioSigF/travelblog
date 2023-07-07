@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Aside, AsideSection, AsideTitle, Body, Categories, CommentsContainer, Content, Grid, Header, ImageWrapper, PostContainer, Wrapper } from './Post.styles'
+import { Aside, AsideSection, AsideTitle, Author, AuthorAvatar, AuthorInfo, AuthorSocial, Body, Categories, CommentsContainer, Content, Grid, Header, ImageWrapper, PostContainer, Wrapper } from './Post.styles'
 
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useFetchDocument } from '../../hooks/useFetchDocument';
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
-import { Container } from '../../globalStyles';
+import { Container, iconList } from '../../globalStyles';
 
 import DataHeader from '../../components/DataHeader/DataHeader';
 import CardRecentPost from '../../components/CardRecentPost/CardRecentPost';
@@ -17,10 +17,13 @@ export default function Post() {
 
   const { documents: posts, loading: loadingPosts } = useFetchDocuments("posts");
 
+  const { documents: authors} = useFetchDocuments("profiles");
+
   const navigate = useNavigate();
 
   const [recentPosts, setRecentPosts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [author, setAuthor] = useState(undefined);
 
   const showFilterOptions = async () => {
 
@@ -48,6 +51,18 @@ export default function Post() {
     }
   }, [posts, id])
 
+  useEffect(() => {
+    if(post && authors)
+    {
+      console.log(authors);
+      authors.forEach((author) => {
+        if(author.uid === post.uid)
+        {
+          setAuthor(author);
+        }
+      })
+    }
+  }, [post, author, authors])
   return (
     <Wrapper>
       <Container>
@@ -71,6 +86,29 @@ export default function Post() {
                   >
                   </Body>
                 </Content>
+                {author && (
+                  <Author>
+                    <AuthorAvatar src={author.avatar} alt={author.name} />
+                    <AuthorInfo>
+                      <h2>{author.name}</h2>
+                      <p>{author.description}</p>
+                      <AuthorSocial>
+                        <li>
+                          <a href={author.facebook}>{iconList.facebook}</a>
+                        </li>
+                        <li>
+                          <a href={author.twitter}>{iconList.twitter}</a>
+                        </li>
+                        <li>
+                          <a href={author.instagram}>{iconList.instagram}</a>
+                        </li>
+                        <li>
+                          <a href={author.linkedin}>{iconList.linkedin}</a>
+                        </li>
+                      </AuthorSocial>
+                    </AuthorInfo>
+                  </Author>
+                )}
                 <CommentsContainer>
                   <span>0 Comments</span>
                 </CommentsContainer>

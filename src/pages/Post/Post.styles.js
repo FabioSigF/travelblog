@@ -122,7 +122,48 @@ export const Body = styled.div `
   }
 `
 
-export const CommentsContainer = styled.div `
+export const Author = styled.section `
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 2rem 2rem 0;
+`
+
+export const AuthorAvatar = styled.img `
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+`
+
+export const AuthorInfo = styled.div `
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  h2 {
+    font-size: ${fSize.textLarger};
+    font-weight: 600;
+    color: ${colors.textDark};
+  }
+  p {
+    font-size: ${fSize.textLarger};
+    line-height: ${`calc(${fSize.textLarger} + .5rem)`};
+  }
+`
+
+export const AuthorSocial = styled.ul `
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  li a {
+    color: ${colors.textGray};
+
+    &:hover {
+      color: ${colors.textDark};
+    }
+  }
+`
+
+export const CommentsContainer = styled.section `
   margin-top: 2rem;
   span {
     color: ${colors.textDark};
