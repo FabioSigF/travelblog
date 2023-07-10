@@ -126,6 +126,7 @@ export const Author = styled.section `
   display: flex;
   gap: 2rem;
   padding: 2rem 2rem 2rem 0;
+  border-bottom: 1px solid ${colors.textGray};
 `
 
 export const AuthorAvatar = styled.img `
@@ -164,7 +165,7 @@ export const AuthorSocial = styled.ul `
 `
 
 export const CommentsContainer = styled.section `
-  margin-top: 2rem;
+  padding: 2rem 0 2rem;
   span {
     color: ${colors.textDark};
     font-size: ${fSize.title};

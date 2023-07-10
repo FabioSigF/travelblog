@@ -130,7 +130,8 @@ export const Container = styled.div`
 `
 
 export const GlobalStyle = createGlobalStyle`
-
+  @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700&family=Montserrat:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&display=swap');
+  
   * {
     margin: 0;
     padding: 0;
