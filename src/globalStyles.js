@@ -110,8 +110,6 @@ export const Container = styled.div`
     width: 100%;
     
     @media screen and (min-width: ${deviceSize.mobileL}) {
-      padding-left: 0;
-      padding-right: 0;
       max-width: 540px;
       margin: 0 auto;
     }
