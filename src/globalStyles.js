@@ -1,7 +1,7 @@
 import { createGlobalStyle, styled } from "styled-components"
-
 import { IoArrowDown, IoArrowForward, IoCart, IoMailOutline, IoSearchOutline } from 'react-icons/io5'
 import { FaFacebookF, FaTwitter, FaInstagram, FaPinterest, FaRedditAlien, FaPencilRuler, FaTrashAlt, FaPlus, FaLinkedin, FaLinkedinIn } from 'react-icons/fa'
+import reset from 'styled-reset'
 
 export const colors = {
   body: "#fff",
@@ -94,6 +94,7 @@ export const deviceSize = {
 
 
 export const GlobalStyle = createGlobalStyle`
+  ${reset};
   * {
     margin: 0;
     padding: 0;

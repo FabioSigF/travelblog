@@ -84,7 +84,7 @@ export const Welcome = styled.section`
   align-items: center;
   flex-direction: column;
   gap: 2rem;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 2rem 4rem;
   
   span {
