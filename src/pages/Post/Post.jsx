@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Aside, AsideSection, AsideTitle, Author, AuthorAvatar, AuthorInfo, AuthorSocial, Body, Categories, CommentsContainer, Content, Grid, Header, ImageWrapper, PostContainer, Wrapper } from './Post.styles'
+import { Aside, AsideSection, AsideTitle, Author, AuthorAvatar, AuthorInfo, AuthorSocial, Body, Categories, CommentsContainer, Content, Grid, Header, ImageWrapper, PostContainer, Wrapper, Container } from './Post.styles'
 
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useFetchDocument } from '../../hooks/useFetchDocument';
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
-import { Container, iconList } from '../../globalStyles';
+import { iconList } from '../../globalStyles';
 
 import DataHeader from '../../components/DataHeader/DataHeader';
 import CardRecentPost from '../../components/CardRecentPost/CardRecentPost';
