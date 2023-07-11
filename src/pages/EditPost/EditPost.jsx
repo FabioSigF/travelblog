@@ -6,7 +6,8 @@ import { BodyContainer, Content, Form, Header, Wrapper } from './EditPost.styles
 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { Container, PageHeader } from '../../globalStyles';
+import Container from '../../layout/Container/Container';
+import PageHeader from '../../layout/PageHeader/PageHeader';
 import ButtonMain from '../../components/Buttons/ButtonMain/ButtonMain';
 import { useStateContext } from '../../context/ContextProvider';
 

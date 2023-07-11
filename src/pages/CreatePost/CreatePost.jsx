@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useInsertDocument } from '../../hooks/useInsertDocument'
 import { Content, Wrapper, Header, Form, BodyContainer } from './CreatePost.styles';
-import { Container, PageHeader } from '../../globalStyles';
+import Container from '../../layout/Container/Container';
+import PageHeader from '../../layout/PageHeader/PageHeader';
 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';

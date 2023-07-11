@@ -3,7 +3,7 @@ import { useFetchDocuments } from '../../hooks/useFetchDocuments'
 import { Wrapper } from './Search.styles';
 import { Link } from 'react-router-dom';
 import PostDetail from '../../components/PostDetail/PostDetail';
-import { PageHeader } from '../../globalStyles';
+import PageHeader from '../../layout/PageHeader/PageHeader';
 import { useQuery } from '../../hooks/useQuery';
 
 export default function Search() {

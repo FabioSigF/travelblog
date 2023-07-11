@@ -4,7 +4,8 @@ import { Aside, AsideSection, AsideTitle, Author, AuthorAvatar, AuthorInfo, Auth
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useFetchDocument } from '../../hooks/useFetchDocument';
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
-import { Container, iconList } from '../../globalStyles';
+import { iconList } from '../../globalStyles';
+import Container from '../../layout/Container/Container';
 
 import DataHeader from '../../components/DataHeader/DataHeader';
 import CardRecentPost from '../../components/CardRecentPost/CardRecentPost';

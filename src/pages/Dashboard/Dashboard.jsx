@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { ButtonNewPost, Content, DeleteWarning, DeleteWarningContent, Flex, NoPosts, Post, PostHeader, PostRow, Title, Wrapper } from './Dashboard.styles'
-import { Container, PageHeader, iconList } from '../../globalStyles'
+import { iconList } from '../../globalStyles'
+import Container from '../../layout/Container/Container';
+import PageHeader from '../../layout/PageHeader/PageHeader';
 import { Link, useNavigate } from 'react-router-dom'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import { useDeleteDocument } from '../../hooks/useDeleteDocument';

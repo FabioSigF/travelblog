@@ -1,11 +1,14 @@
 import React from 'react'
 import { Content, Social, Staff, StaffDescription, StaffHeader, StaffList, StaffMember, StaffTitle, Wrapper } from './About.styles'
-import { Container, PageHeader, iconList } from '../../globalStyles'
+import { iconList } from '../../globalStyles'
+import Container from '../../layout/Container/Container';
+
 
 import avatar1 from '../../assets/imgs/avatar1.jpg'
 import avatar2 from '../../assets/imgs/avatar2.jpg'
 import avatar3 from '../../assets/imgs/avatar3.webp'
 import avatar4 from '../../assets/imgs/avatar4.webp'
+import PageHeader from '../../layout/PageHeader/PageHeader';
 
 export default function About() {
 
