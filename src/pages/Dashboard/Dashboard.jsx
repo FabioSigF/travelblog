@@ -15,8 +15,8 @@ export default function Dashboard() {
   const { documents: posts, loading } = useFetchDocuments("posts", null, uid);
   const { deleteDocument } = useDeleteDocument("posts")
 
-  const [deleteAdvertise, setDeleteAdvertise] = useState(false);
-  const [deleteAdvertiseId, setDeleteAdvertiseId] = useState("");
+  const [deleteAdvertise, setDeletePost] = useState(false);
+  const [deleteAdvertiseId, setDeletePostId] = useState("");
 
   const navigate = useNavigate();
 
@@ -53,8 +53,8 @@ export default function Dashboard() {
                       <Link to={`/posts/${post.id}`} >Ver</Link>
                       <Link to={`/posts/edit/${post.id}`}>Editar</Link>
                       <button onClick={() => {
-                        setDeleteAdvertiseId(post.id)
-                        setDeleteAdvertise(true)
+                        setDeletePostId(post.id)
+                        setDeletePost(true)
                       }}>Excluir</button>
                     </div>
                   </PostRow>
@@ -68,12 +68,12 @@ export default function Dashboard() {
       {deleteAdvertise && (
         <DeleteWarning>
           <DeleteWarningContent>
-            <p>Você tem certeza que deseja deleter permanentemente o anúncio?</p>
+            <p>Você tem certeza que deseja excluir permanentemente a postagem?</p>
             <div>
-              <button onClick={() => setDeleteAdvertise(false)}>Voltar</button>
+              <button onClick={() => setDeletePost(false)}>Voltar</button>
               <button onClick={() => {
                 deleteDocument(deleteAdvertiseId)
-                setDeleteAdvertise(false)
+                setDeletePost(false)
               }}>Deletar</button>
             </div>
           </DeleteWarningContent>
