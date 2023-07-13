@@ -60,7 +60,7 @@ export default function Hero({ data }) {
 
   function showShortDescription() {
     if (data.body.length > 150) {
-      setDescription(data.body.substring(0, 150) + '...');
+      setDescription(data.body.substring(3, 150) + '...');
     }
   }
 

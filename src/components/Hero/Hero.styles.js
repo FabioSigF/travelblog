@@ -1,13 +1,13 @@
 import { styled } from "styled-components";
 import { colors, deviceSize, fFamily, fSize, pseudoCfg } from "../../globalStyles";
 
-export const Wrapper = styled.div `
+export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   cursor: pointer;
 `
 
-export const HeroBackground = styled.div `
+export const HeroBackground = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
@@ -18,18 +18,31 @@ export const HeroBackground = styled.div `
 
   display: flex;
   align-items: flex-end;  
+
+  &::after {
+        ${pseudoCfg}
+        width: 100%;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 100%);
+      }
   `
 
-export const Content = styled.div `
+export const Content = styled.div`
+  position: relative;
   color: ${colors.textLight};
-
+  z-index: 2;
   @media screen and (min-width: ${deviceSize.laptop}){
     padding: 3rem;
   }
   
 `
 
-export const Info = styled.div `
+export const Info = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -51,7 +64,7 @@ export const Info = styled.div `
   }
 `
 
-export const Title = styled.h2 `
+export const Title = styled.h2`
   font-size: ${fSize.titleLarger};
   font-weight: 700;
   color: ${colors.textLight};
@@ -62,7 +75,7 @@ export const Title = styled.h2 `
   }
 `
 
-export const Description = styled.p `
+export const Description = styled.p`
   color: ${colors.textLight};
   font-size: ${fSize.text};
   line-height: ${`calc(${fSize.text} + .5rem)`};
